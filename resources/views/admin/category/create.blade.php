@@ -13,16 +13,19 @@
 
                     <form action="{{ route('category.store') }}" method="POST">
                         @csrf
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Category Name</label>
-                          <input type="text" class="form-control" name="category_name" id="exampleInputEmail1"
-                           aria-describedby="emailHelp" placeholder="Category Name" required>
-                          <div id="emailHelp" class="form-text">Write Your Category Name</div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                          <div class="form-group">
+                            <label for="disabledTextInput" class="form-label">Category Name</label>
+                            <input type="text" name="category_name" id="disabledTextInput"
+                            class="form-control @error('category_name') is-invalid @enderror"
+                            placeholder="Category Name">
+                            @error('categroy_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                          </div>
+                          <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
-
                 </div>
             </div>
         </div>

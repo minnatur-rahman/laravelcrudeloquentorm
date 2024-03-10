@@ -24,4 +24,13 @@ class CategoryController extends Controller
         return view('admin.category.create');
     }
 
+    //__store method__//
+    public function store(Request $request){
+
+        $request->validate([
+            'category_name' => 'required|unique:categories|max:255',
+
+        ]);
+    }
+
 }
