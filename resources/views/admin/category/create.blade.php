@@ -18,12 +18,13 @@
                             <input type="text" name="category_name" id="disabledTextInput"
                             class="form-control @error('category_name') is-invalid @enderror"
                             placeholder="Category Name">
-                            @error('categroy_name')
+                            @error('category_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                             @enderror
                           </div>
+                          <br><br>
                           <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
                 </div>
