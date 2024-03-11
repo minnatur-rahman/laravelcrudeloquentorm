@@ -34,6 +34,7 @@ class CategoryController extends Controller
 
         ]);
 
+
         // $category = new Category;
         // $category->category_name = $request->category_name;
         // $category->category_slug = Str::of($request->category_name)->slug('-');
@@ -46,6 +47,13 @@ class CategoryController extends Controller
 
         return redirect()->back();
 
+    }
+
+    //__edit method__//
+    public function edit($id){
+
+        $data = DB::table('categories')->where('id',$id)->first();
+        return view('admin.category.edit',compact('data'));
     }
 
 }
