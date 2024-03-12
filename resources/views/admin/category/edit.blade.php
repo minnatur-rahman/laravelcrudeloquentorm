@@ -14,14 +14,13 @@
                     <form action="{{ route('category.store') }}" method="POST">
                         @csrf
                           <div class="form-group">
-                            <label for="disabledTextInput" class="form-label">Category Name</label>
+                            <label for="disabledTextInput">Category Name</label>
                             <input type="text" name="category_name" id="disabledTextInput"
-                            class="form-control "
-                            placeholder="Category Name">
+                            class="form-control" value="{{ $data->category_name }}">
 
                           </div>
                           <br><br>
-                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <button type="submit" class="btn btn-primary">Update</button>
                       </form>
                 </div>
             </div>

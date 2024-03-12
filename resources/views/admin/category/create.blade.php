@@ -16,7 +16,7 @@
                           <div class="form-group">
                             <label for="disabledTextInput" class="form-label">Category Name</label>
                             <input type="text" name="category_name" id="disabledTextInput"
-                            class="form-control @error('category_name') is-invalid @enderror"
+                            class="form-control" value="{{ old('catetory_name') }}"
                             placeholder="Category Name">
                             @error('category_name')
                                     <span class="invalid-feedback" role="alert">

@@ -52,7 +52,9 @@ class CategoryController extends Controller
     //__edit method__//
     public function edit($id){
 
-        $data = DB::table('categories')->where('id',$id)->first();
+        // $data = DB::table('categories')->where('id',$id)->first();
+        // $data = Category::where('id',$id)->first();
+        $data = Category::find($id);
         return view('admin.category.edit',compact('data'));
     }
 
