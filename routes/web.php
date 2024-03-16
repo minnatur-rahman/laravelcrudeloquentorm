@@ -21,7 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['verify' => true]);
+Auth::routes([
+    'verify' => true
+]);
 
 
 
@@ -35,7 +37,7 @@ Auth::routes(['verify' => true]);
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
 Route::get('category/index', [CategoryController::class, 'index'])->name('category.index');
 Route::get('category/create', [CategoryController::class, 'create'])->name('category.create');
