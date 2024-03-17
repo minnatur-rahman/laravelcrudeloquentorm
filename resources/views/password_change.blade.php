@@ -12,18 +12,26 @@
 
                 <div class="card-body">
 
+                    @if(session()->has('success'))
+                        <strong class="text-success">{{ session()->get('success') }}</strong>
+                    @endif
+
+                    @if(session()->has('error'))
+                    <strong class="text-danger">{{ session()->get('error') }}</strong>
+                    @endif
+
                     <form method="POST" action="{{ route('update.password') }}">
                         @csrf
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Carrent Password</label>
-                          <input type="password" name="old_password" placeholder="Carrent Password" class="form-control "
-                          id="exampleInputPassword1">
+                          <label>Carrent Password</label>
+                          <input type="password" name="current_password" placeholder="Carrent Password" class="form-control"
+                          >
                         </div>
 
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">New Password</label>
+                            <label>New Password</label>
                             <input type="password" name="new_password" class="form-control @error('email') is-invalid @enderror" placeholder="New Password"
-                            id="exampleInputPassword1">
+                            >
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -32,12 +40,12 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                            <label>Confirm Password</label>
                             <input type="password" name="password_confirmation" class="form-control " placeholder="Confirm Password"
-                            id="exampleInputPassword1">
+                            >
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Password Change</button>
                       </form>
 
                 </div>
