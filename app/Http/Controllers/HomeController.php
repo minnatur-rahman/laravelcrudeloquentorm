@@ -25,4 +25,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function password_change()
+    {
+        return view('password_change');
+    }
+
+
 }

@@ -27,14 +27,6 @@ Auth::routes([
 
 
 
-// Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-//     $request->fulfill();
-
-//     return redirect('/home');
-// })->middleware(['auth', 'signed'])->name('verification.verify');
-
-
-
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
@@ -46,6 +38,9 @@ Route::get('category/edit/{id}', [CategoryController::class, 'edit'])->name('cat
 Route::post('category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
 Route::get('category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.delete');
 
+
+
+Route::get('/password/change/', [HomeController::class, 'password_change'])->name('password.change')->middleware('verified');
 
 
 
