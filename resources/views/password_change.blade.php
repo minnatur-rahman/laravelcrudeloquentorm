@@ -24,7 +24,7 @@
                         @csrf
                         <div class="mb-3">
                           <label>Carrent Password</label>
-                          <input type="password" name="current_password" placeholder="Carrent Password" class="form-control" required>
+                          <input type="password" name="current_password" placeholder="Carrent Password" class="form-control" required value="{{ old('current_password') }}">
                         </div>
 
                         <div class="mb-3">
