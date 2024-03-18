@@ -41,7 +41,7 @@ Route::get('category/delete/{id}', [CategoryController::class, 'destroy'])->name
 
 
 Route::get('/password/change/', [HomeController::class, 'password_change'])->name('password.change')->middleware('verified');
-Route::post('/password/change/', [HomeController::class, 'update_password'])->name('update.password')->middleware('verified');
+Route::post('/password/update/', [HomeController::class, 'update_password'])->name('update.password')->middleware('verified');
 
 
 

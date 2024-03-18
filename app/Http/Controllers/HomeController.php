@@ -36,7 +36,7 @@ class HomeController extends Controller
     }
 
     //__password Update method__//
-    public function update_password(Request $request)
+    public function  update_password(Request $request)
     {
         $request->validate([
             'current_password' => 'required',
