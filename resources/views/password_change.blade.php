@@ -24,15 +24,13 @@
                         @csrf
                         <div class="mb-3">
                           <label>Carrent Password</label>
-                          <input type="password" name="current_password" placeholder="Carrent Password" class="form-control"
-                          >
+                          <input type="password" name="old_password" placeholder="Carrent Password" class="form-control" required>
                         </div>
 
                         <div class="mb-3">
                             <label>New Password</label>
-                            <input type="password" name="new_password" class="form-control @error('email') is-invalid @enderror" placeholder="New Password"
-                            >
-                                @error('email')
+                            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="New Password" required>
+                                @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -41,8 +39,7 @@
 
                         <div class="mb-3">
                             <label>Confirm Password</label>
-                            <input type="password" name="password_confirmation" class="form-control " placeholder="Confirm Password"
-                            >
+                            <input type="password" name="password_confirmation" class="form-control " placeholder="Confirm Password" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Password Change</button>

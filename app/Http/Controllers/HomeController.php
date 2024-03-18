@@ -40,13 +40,14 @@ class HomeController extends Controller
     {
         $request->validate([
             'current_password' => 'required',
-            'new_password' => 'required|min:6|max:16|string|confirmed',
+            'password' => 'required|min:6|max:16|string|confirmed',
             'password_confirmation' => 'required',
         ]);
 
         $user = Auth::user();
 
-        if(Hash::check($request->current_password, $user->password)){
+        if(Hash::check($request->current_password, $user->password))
+        {
             $user->password=Hash::make($request->password);  //Hashing password form input field
             $user->save();
             return redirect()->back()->with('success', 'Password Change Successfully !');
