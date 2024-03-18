@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
@@ -44,13 +45,23 @@ class HomeController extends Controller
             'password_confirmation' => 'required',
         ]);
 
-        $user = Auth::user();
+        // $user = Auth::user();
 
-        if(Hash::check($request->current_password, $user->password))
+        if(Hash::check($request->current_password, Auth::user()->password))
         {
-            $user->password=Hash::make($request->password);  //Hashing password form input field
-            $user->save();
-            return redirect()->back()->with('success', 'Password Change Successfully !');
+            // $user->password=Hash::make($request->password);  //Hashing password form input field
+            // $user->save();
+
+            // $data = array(
+            //     'password' => Hash::make($request->password),
+            // );
+
+            $data =array();
+            $data['password']=Hash::make($request->password);
+            DB::table('users')->where('id', Auth::id())->update($data);
+            Auth::logout();
+            return redirect()->route('login');
+
         }else{
             return redirect()->back()->with('error', 'Current Password Not Match !');
         }
