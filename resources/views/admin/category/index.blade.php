@@ -92,7 +92,7 @@
                         </tr>
                         @endforeach
                     </tbody>
-                    <tfoot>
+                    {{-- <tfoot>
                     <tr>
                       <th>Rendering engine</th>
                       <th>Browser</th>
@@ -100,7 +100,7 @@
                       <th>Engine version</th>
                       <th>CSS grade</th>
                     </tr>
-                    </tfoot>
+                    </tfoot> --}}
                   </table>
                 </div>
                 <!-- /.card-body -->
