@@ -115,6 +115,8 @@
 <script src="{{ asset('backend') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{ asset('backend') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>swal("My title", "My description", "success");</script>
 
 <!-- Page specific script -->
 <script>
