@@ -118,6 +118,24 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>swal("My title", "My description", "success");</script>
 
+
+<script>
+    $(document).on("click", "#delite", function(e){
+        e.preventDefault();
+        var link = $(this).attr("herf");
+        swal({
+            title : "Are you want to delete ?",
+            text : "Once Delete, This will be Parmanently Delete !",
+            icon : "warning",
+            buttons : true,
+            dangerMode : true,
+        })
+        .then((willDelete) => {
+
+        })
+    })
+</script>
+
 <!-- Page specific script -->
 <script>
     $(function () {
