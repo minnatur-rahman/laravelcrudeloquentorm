@@ -29,7 +29,9 @@
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+  integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"
+  referrerpolicy="no-referrer"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -50,14 +52,7 @@
 
   @yield('content')
 
-  <!-- /.content-wrapper -->
-  {{-- <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
-    </div>
-  </footer> --}}
+
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -118,11 +113,11 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>swal("My title", "My description", "success");</script>
 
-
+//__Anything Delete__///
 <script>
-    $(document).on("click", "#delite", function(e){
+    $(document).on("click", "#delete", function(e){
         e.preventDefault();
-        var link = $(this).attr("herf");
+        var link = $(this).attr("href");
         swal({
             title : "Are you want to delete ?",
             text : "Once Delete, This will be Parmanently Delete !",
@@ -134,10 +129,30 @@
             if(willDelete) {
                 window.location.href = link;
             }else{
-                swal("Save Data !");
+                swal("Safe Data!");
             }
         });
     });
+</script>
+
+<script>
+ @if (Session::has('messege'))
+        @var type="{{Session::get('alert-type', 'info')}}"
+        switch(type){
+          case 'info':
+                 toastr.info("{{ Session::get('messege')}}");
+                 break;
+          case 'success':
+                 toastr.success("{{ Session::get('messege')}}");
+                 break;
+          case 'warning':
+                 toastr.warning("{{ Session::get('messege')}}");
+                 break;
+          case 'error':
+                 toastr.error("{{ Session::get('messege')}}");
+                 break;
+        }
+ @endif
 </script>
 
 <!-- Page specific script -->
