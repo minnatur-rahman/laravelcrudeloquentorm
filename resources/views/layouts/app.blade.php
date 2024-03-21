@@ -131,9 +131,13 @@
             dangerMode : true,
         })
         .then((willDelete) => {
-
-        })
-    })
+            if(willDelete) {
+                window.location.href = link;
+            }else{
+                swal("Save Data !");
+            }
+        });
+    });
 </script>
 
 <!-- Page specific script -->
