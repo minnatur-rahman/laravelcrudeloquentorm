@@ -47,8 +47,8 @@
                             <td>{{ $row->category_name }}</td>
                             <td>{{ $row->category_slug }}</td>
                             <td>
-                                <a class="btn btn-sm btn-info" href="{{ route('category.edit',$row->id) }}">Edit</a>
-                                <a class="btn btn-sm btn-danger" href="{{ route('category.delete',$row->id) }}">Delete</a>
+                                <a href="{{ route('category.edit',$row->id) }}" class="btn btn-sm btn-info">Edit</a>
+                                <a href="{{ route('category.delete',$row->id) }}" class="btn btn-sm btn-danger" id="delete" >Delete</a>
                             </td>
                         </tr>
                         @endforeach

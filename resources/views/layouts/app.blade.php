@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -107,6 +107,40 @@
 <script src="{{ asset('backend') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="{{ asset('backend') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{ asset('backend') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+
+//__sweet alart__//
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+$(function() {
+    $(document).on('click','#delete',function(error){
+        error.preventDefault();
+        var link = $(this).attr("href");
+
+        Swal.fire({
+             title: "Are you sure?",
+             text: "You won't be able to revert this!",
+             icon: "warning",
+             showCancelButton: true,
+             confirmButtonColor: "#3085d6",
+             cancelButtonColor: "#d33",
+             confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+      if (result.isConfirmed) {
+      Swal.fire({
+             title: "Deleted!",
+             text: "Your file has been deleted.",
+             icon: "success"
+
+    });
+  }
+});
+
+    });
+});
+</script>
+
+
 <!-- Page specific script -->
 <script>
     $(function () {
