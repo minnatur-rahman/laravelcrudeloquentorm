@@ -45,6 +45,8 @@ class CategoryController extends Controller
             'category_slug' => Str::of($request->category_name)->slug('-'),
         ]);
 
+        toastr()->success('Category has been saved successfully!', 'Congrats', ['timeOut' => 2000]);
+
         return redirect()->back();
 
     }
