@@ -108,36 +108,29 @@
 <script src="{{ asset('backend') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{ asset('backend') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-
+@stack('script')
 //__sweet alart__//
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script type="text/javascript">
-$(function() {
-    $(document).on('click','#delete',function(error){
+
+<script>
+   $(document).on("click", ".delete", function(error){
         error.preventDefault();
         var link = $(this).attr("href");
 
-        Swal.fire({
-             title: "Are you sure?",
-             text: "You won't be able to revert this!",
-             icon: "warning",
-             showCancelButton: true,
-             confirmButtonColor: "#3085d6",
-             cancelButtonColor: "#d33",
-             confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
-      if (result.isConfirmed) {
-      Swal.fire({
-             title: "Deleted!",
-             text: "Your file has been deleted.",
-             icon: "success"
-
-    });
-  }
-});
-
-    });
-});
+        swal({
+            title: "Are you want to delete ?",
+            text: "Success!",
+            icon: "Warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) =>{
+            if(willDelete){
+                window.location.href = link;
+            }else{
+                swal("Safe Data !");
+            }
+        });
+   });
 </script>
 
 
