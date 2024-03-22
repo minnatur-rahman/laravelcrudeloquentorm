@@ -1,15 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Update Category') }}</div>
-
-                <div class="card-body"><a href="{{route('category.index')}}">All Category</a>
-
-                    <br><br>
 
                     <form action="{{ route('category.update',$data->id) }}" method="POST">
                         @csrf

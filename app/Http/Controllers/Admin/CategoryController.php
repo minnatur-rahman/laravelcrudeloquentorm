@@ -75,6 +75,7 @@ class CategoryController extends Controller
         $category->category_slug = Str::of($request->category_name)->slug('-');
         $category->save();
 
+        toastr()->success('Category has been updated successfully!', 'Congrats', ['timeOut' => 2000]);
         return redirect()->route('category.index');
     }
 
@@ -87,8 +88,8 @@ class CategoryController extends Controller
 
         Category::destroy($id);
 
-        // $notification = array('message' => 'Category Deleted Successfully !','alert-type' => 'success');
-        return redirect()->back()->with('message', 'Category delete successfully !');
+        toastr()->success('Category has been delete successfully!', 'Congrats', ['timeOut' => 2000]);
+        return redirect()->back()->with('message', 'Category Delete Successfully !');
     }
 
 }
