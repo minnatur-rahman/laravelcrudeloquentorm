@@ -29,7 +29,10 @@
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css"
+  integrity="sha512-hwwdtOTYkQwW2sedIsbuP1h0mWeJe/hFOfsvNKpRB3CkRxq8EW7QMheec1Sgd8prYxGm1OM9OZcGW7/GUud5Fw==" crossorigin="anonymous"
+  referrerpolicy="no-referrer" />
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -59,6 +62,8 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+<script src="https://code.jquery.com/jquery-3.7.1.slim.js"
+integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
 
 <!-- jQuery -->
 <script src="{{ asset('backend') }}/plugins/jquery/jquery.min.js"></script>
@@ -107,14 +112,24 @@
 <script src="{{ asset('backend') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="{{ asset('backend') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{ asset('backend') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"
+integrity="sha512-MqEDqB7me8klOYxXXQlB4LaNf9V9S0+sG1i8LtPOYmHqICuEZ9ZLbyV3qIfADg2UJcLyCm4fawNiFvnYbcBJ1w==" crossorigin="anonymous"
+referrerpolicy="no-referrer"></script>
 
 @stack('script')
 //__sweet alart__//
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
-   $(document).on("click", ".delete", function(error){
-        error.preventDefault();
+
+
+
+
+
+
+{{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+
+{{-- <script>
+   $(document).on("click", ".delete", function(e){
+        e.preventDefault();
         var link = $(this).attr("href");
 
         swal({
@@ -131,7 +146,18 @@
             }
         });
    });
-</script>
+</script> --}}
+
+{{-- <script>
+    @if (Session::has('message'))
+        var type="{{ Session::get('alert-type', 'info') }}"
+        switch(type){
+            case 'info':
+                tostar
+        }
+
+    @endif
+</script> --}}
 
 
 <!-- Page specific script -->
@@ -152,5 +178,15 @@
       });
     });
   </script>
+
+@if(Session::has('message'))
+  <script>
+        swal("Congratulations", "{!! Session::get('message') !!}", "success",{
+            button: "ok"
+        })
+  </script>
+@endif
+
+
 </body>
 </html>

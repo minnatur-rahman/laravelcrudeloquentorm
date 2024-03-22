@@ -87,7 +87,8 @@ class CategoryController extends Controller
 
         Category::destroy($id);
 
-        return redirect()->back();
+        // $notification = array('message' => 'Category Deleted Successfully !','alert-type' => 'success');
+        return redirect()->back()->with('message', 'Category delete successfully !');
     }
 
 }
