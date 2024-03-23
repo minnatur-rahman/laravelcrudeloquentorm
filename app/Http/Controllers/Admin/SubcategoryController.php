@@ -32,7 +32,7 @@ class SubcategoryController extends Controller
         // $subcategory->subcategory_slug = Str::of($request->subcategory_name)->slug('-');
         // $subcategory->save();
 
-        Category::insert([
+        Subcategory::insert([
             'subcategory_id' => $request->subcategory_id,
             'subcategory_name' => $request->subcategory_name,
             'subcategory_slug' => Str::of($request->subcategory_name)->slug('-'),
