@@ -19,7 +19,7 @@ class SubcategoryController extends Controller
 
     //___store method___..
     public function store(Request $request){
-        $request->validate([
+       $validated = $request->validate([
             'category_id' => 'required',
             'subcategory_name' => 'required|unique:subcategories|max:255',
 
@@ -28,7 +28,7 @@ class SubcategoryController extends Controller
 
         $subcategory = new Subcategory;
         $subcategory->category_id = $request->category_id;
-        $subcategory->subcategory_name = $request->category_name;
+        $subcategory->subcategory_name = $request->subcategory_name;
         $subcategory->subcategory_slug = Str::of($request->subcategory_name)->slug('-');
         $subcategory->save();
 

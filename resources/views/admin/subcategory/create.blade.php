@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Add New SubCategory') }}</div>
                   <div class="card-body">
-                    <form action="{{ route('category.store') }}" method="POST">
+                    <form action="{{ route('subcategory.store') }}" method="POST">
                         @csrf
                          <div class="form-group">
                             <label for="disabledTextInput" class="form-label">Choose Category</label>
