@@ -46,6 +46,7 @@ Route::get('/password/change/', [HomeController::class, 'password_change'])->nam
 Route::post('/password/update/', [HomeController::class, 'update_password'])->name('update.password')->middleware('verified');
 
 //___subcategories route___//
+Route::get('subcategory/index', [SubcategoryController::class, 'index'])->name('subcategory.index');
 Route::get('subcategory/create', [SubcategoryController::class, 'create'])->name('subcategory.create');
 Route::post('subcategory/store', [SubcategoryController::class, 'store'])->name('subcategory.store');
 

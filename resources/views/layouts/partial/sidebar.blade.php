@@ -75,7 +75,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ Route('category.index') }}" class="nav-link">
+                <a href="{{ Route('subcategory.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All SubCategory</p>
                 </a>

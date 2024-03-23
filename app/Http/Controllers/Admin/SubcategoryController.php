@@ -11,6 +11,10 @@ use DB;
 
 class SubcategoryController extends Controller
 {
+    //___subcategory index___//
+     public function index(){
+
+     }
     //___create method___//
     public function create(){
         $categories = Category::all();  // DB::table('categories')->get();
