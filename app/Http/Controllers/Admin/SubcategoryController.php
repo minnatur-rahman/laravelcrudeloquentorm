@@ -26,17 +26,17 @@ class SubcategoryController extends Controller
         ]);
 
 
-        // $subcategory = new Subcategory;
-        // $subcategory->subcategory_id = $request->category_id;
-        // $subcategory->subcategory_name = $request->category_name;
-        // $subcategory->subcategory_slug = Str::of($request->subcategory_name)->slug('-');
-        // $subcategory->save();
+        $subcategory = new Subcategory;
+        $subcategory->category_id = $request->category_id;
+        $subcategory->subcategory_name = $request->category_name;
+        $subcategory->subcategory_slug = Str::of($request->subcategory_name)->slug('-');
+        $subcategory->save();
 
-        Subcategory::insert([
-            'subcategory_id' => $request->subcategory_id,
-            'subcategory_name' => $request->subcategory_name,
-            'subcategory_slug' => Str::of($request->subcategory_name)->slug('-'),
-        ]);
+        // Subcategory::insert([
+        //     'category_id' => $request->category_id,
+        //     'subcategory_name' => $request->subcategory_name,
+        //     'subcategory_slug' => Str::of($request->subcategory_name)->slug('-'),
+        // ]);
 
         toastr()->success('Subcategory has been saved successfully!', 'Congrats', ['timeOut' => 4000]);
 
