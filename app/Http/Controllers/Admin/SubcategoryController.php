@@ -52,4 +52,22 @@ class SubcategoryController extends Controller
 
         return redirect()->back();
      }
+
+     //___destroy method____//
+     public function destroy($id)
+     {
+        Subcategory::destroy($id);
+
+        toastr()->success('Category has been delete successfully!', 'Congrats', ['timeOut' => 2000]);
+        return redirect()->back()->with('message', 'SubCategory Delete Successfully !');
+
+     }
+
+     //___edit method___//
+     public function edit()
+     {
+        $categories=Category::all();
+        $data=Subcategory::find();
+        return view('admin/subcategory/edit',compact('categories','data'));
+     }
 }
