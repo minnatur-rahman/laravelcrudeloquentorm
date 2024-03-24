@@ -12,18 +12,22 @@ use DB;
 class SubcategoryController extends Controller
 {
     //___subcategory index___//
-     public function index(){
-       $data = DB::table('subcategories')->get();
+     public function index()
+     {
+        $data = DB::table('subcategories')->leftjoin('categories','subcategories.category_id','categories.id')
+        ->select('categories.category_name','subcategories.*')->get();
         return response()->json($data);
      }
     //___create method___//
-    public function create(){
-        $categories = Category::all();  // DB::table('categories')->get();
+    public function create()
+    {
+        $categories = Category::all();
         return view('admin.subcategory.create', compact('categories'));
     }
 
     //___store method___..
-    public function store(Request $request){
+    public function store(Request $request)
+    {
        $validated = $request->validate([
             'category_id' => 'required',
             'subcategory_name' => 'required|unique:subcategories|max:255',
