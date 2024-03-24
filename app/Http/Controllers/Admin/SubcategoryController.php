@@ -13,7 +13,8 @@ class SubcategoryController extends Controller
 {
     //___subcategory index___//
      public function index(){
-
+       $data = DB::table('subcategories')->get();
+        return response()->json($data);
      }
     //___create method___//
     public function create(){
