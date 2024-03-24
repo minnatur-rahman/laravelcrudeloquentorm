@@ -70,4 +70,10 @@ class SubcategoryController extends Controller
         $data=Subcategory::find();
         return view('admin/subcategory/edit',compact('categories','data'));
      }
+
+     //___subcategory update___//
+     public function update(Request $request, $id)
+     {
+
+     }
 }
