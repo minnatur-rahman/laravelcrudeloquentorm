@@ -20,15 +20,15 @@ class SubcategoryController extends Controller
         return view('admin/subcategory/index',compact('data'));
      }
     //___create method___//
-    public function create()
-    {
+     public function create()
+     {
         $categories = Category::all();
         return view('admin.subcategory.create', compact('categories'));
-    }
+     }
 
     //___store method___..
-    public function store(Request $request)
-    {
+     public function store(Request $request)
+     {
        $validated = $request->validate([
             'category_id' => 'required',
             'subcategory_name' => 'required|unique:subcategories|max:255',
@@ -51,5 +51,5 @@ class SubcategoryController extends Controller
         toastr()->success('Subcategory has been saved successfully!', 'Congrats', ['timeOut' => 4000]);
 
         return redirect()->back();
-    }
+     }
 }

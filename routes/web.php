@@ -49,6 +49,7 @@ Route::post('/password/update/', [HomeController::class, 'update_password'])->na
 Route::get('subcategory/index', [SubcategoryController::class, 'index'])->name('subcategory.index');
 Route::get('subcategory/create', [SubcategoryController::class, 'create'])->name('subcategory.create');
 Route::post('subcategory/store', [SubcategoryController::class, 'store'])->name('subcategory.store');
+Route::get('subcategory/delete/{id}', [SubcategoryController::class, 'destroy'])->name('subcategory.delete');
 
 
 
