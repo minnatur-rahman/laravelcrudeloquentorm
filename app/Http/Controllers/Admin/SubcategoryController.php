@@ -64,10 +64,10 @@ class SubcategoryController extends Controller
      }
 
      //___edit method___//
-     public function edit()
+     public function edit($id)
      {
         $categories=Category::all();
-        $data=Subcategory::find();
+        $data=Subcategory::find($id);
         return view('admin/subcategory/edit',compact('categories','data'));
      }
 
@@ -81,7 +81,7 @@ class SubcategoryController extends Controller
         $subcategory->subcategory_slug = Str::of($request->subcategory_name)->slug('-');
         $subcategory->save();
 
-        toastr()->success('Category has been updated successfully!', 'Congrats', ['timeOut' => 2000]);
-        return redirect()->route('category.index');
+        toastr()->success('SubCategory has been updated successfully!', 'Congrats', ['timeOut' => 2000]);
+        return redirect()->route('subcategory.index');
      }
 }
