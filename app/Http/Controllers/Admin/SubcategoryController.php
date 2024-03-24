@@ -74,6 +74,19 @@ class SubcategoryController extends Controller
      //___subcategory update___//
      public function update(Request $request, $id)
      {
+        $category = Category::find($id); //get the record
 
+        // $category->update([
+        //     'category_name' => $request->category_name,
+        //     'category_slug' => Str::of($request->category_name)->slug('-'),
+        // ]);
+
+
+        $category->category_name = $request->category_name;
+        $category->category_slug = Str::of($request->category_name)->slug('-');
+        $category->save();
+
+        toastr()->success('Category has been updated successfully!', 'Congrats', ['timeOut' => 2000]);
+        return redirect()->route('category.index');
      }
 }
