@@ -17,8 +17,6 @@ class SubcategoryController extends Controller
         // $data = DB::table('subcategories')->leftjoin('categories','subcategories.category_id','categories.id')
         // ->select('categories.category_name','subcategories.*')->get();
         $data = Subcategory::all();
-
-
         return view('admin/subcategory/index',compact('data'));
      }
     //___create method___//
