@@ -50,7 +50,7 @@ Route::get('subcategory/index', [SubcategoryController::class, 'index'])->name('
 Route::get('subcategory/create', [SubcategoryController::class, 'create'])->name('subcategory.create');
 Route::post('subcategory/store', [SubcategoryController::class, 'store'])->name('subcategory.store');
 Route::get('subcategory/delete/{id}', [SubcategoryController::class, 'destroy'])->name('subcategory.delete');
-Route::get('category/edit/{id}', [SubcategoryController::class, 'edit'])->name('subcategory.edit');
+Route::get('subcategory/edit/{id}', [SubcategoryController::class, 'edit'])->name('subcategory.edit');
 Route::post('subcategory/update/{id}', [SubcategoryController::class, 'update'])->name('subcategory.update');
 
 
