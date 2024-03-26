@@ -28,4 +28,10 @@ class Post extends Model
         return $this->belongsTo(Subcategory::class, 'subcategory_id'); //category_id
     }
 
+    //___join with users___//
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id'); //category_id
+    }
+
 }

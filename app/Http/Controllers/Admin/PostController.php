@@ -11,5 +11,22 @@ use DB;
 
 class PostController extends Controller
 {
-    //
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+    //___create method___//
+    public function create()
+    {
+        return view('admin');
+    }
+
+
+
+
+
+
 }

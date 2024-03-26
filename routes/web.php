@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\SubcategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\PostController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -55,6 +56,8 @@ Route::post('subcategory/update/{id}', [SubcategoryController::class, 'update'])
 
 
 
+//___post Routes___//
+Route::get('post/create', [PostController::class, 'create'])->name('post.create');
 
 
 
