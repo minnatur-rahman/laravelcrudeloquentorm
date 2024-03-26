@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\User;
 use Illuminate\Console\Command;
 
 class generateUser extends Command
@@ -18,13 +19,18 @@ class generateUser extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Generate some users on users table';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        //
+        $user=$this->argument('count');
+        for ($i=0; $i<$user ; $i++) {
+
+            User::factory()->create();
+
+        }
     }
 }
