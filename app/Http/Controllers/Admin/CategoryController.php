@@ -38,15 +38,15 @@ class CategoryController extends Controller
         ]);
 
 
-        // $category = new Category;
-        // $category->category_name = $request->category_name;
-        // $category->category_slug = Str::of($request->category_name)->slug('-');
-        // $category->save();
+        $category = new Category;
+        $category->category_name = $request->category_name;
+        $category->category_slug = Str::of($request->category_name)->slug('-');
+        $category->save();
 
-        Category::insert([
-            'category_name' => $request->category_name,
-            'category_slug' => Str::of($request->category_name)->slug('-'),
-        ]);
+        // Category::insert([
+        //     'category_name' => $request->category_name,
+        //     'category_slug' => Str::of($request->category_name)->slug('-'),
+        // ]);
 
         toastr()->success('Category has been saved successfully!', 'Congrats', ['timeOut' => 2000]);
 

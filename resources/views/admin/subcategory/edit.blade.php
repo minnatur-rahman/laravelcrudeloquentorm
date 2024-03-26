@@ -6,12 +6,12 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Update SubCategory') }}</div>
-
+                    <div class="card-body">
                     <form action="{{ route('subcategory.update',$data->id) }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="disabledTextInput" class="form-label">Choose Category</label>
-                              <select class="form-controll" name="category_id">
+                            <label for="disabledTextInput">Choose Category</label>
+                              <select class="form-control" name="category_id">
                                  @foreach ($categories as $row )
                                    <option value="{{ $row->id }}" @if($row->id==$data->category_id) selected @endif> {{ $row->category_name }}</option>
                                  @endforeach
@@ -30,6 +30,7 @@
                           </div>
                           <button type="submit" class="btn btn-primary">Update</button>
                       </form>
+                    </div>
                 </div>
             </div>
         </div>
