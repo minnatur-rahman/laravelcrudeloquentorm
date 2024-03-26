@@ -16,10 +16,17 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('subcategory_id');
             $table->unsignedBigInteger('user_id');
-            $table->string('subcategory_name');
-            $table->string('subcategory_slug');
+            $table->string('title');
+            $table->string('slug');
+            $table->string('post_date')->nullable();
+            $table->string('image')->nullable();
+            $table->text('description')->nullable();
+            $table->text('tags')->nullable();
+            $table->integer('status')->nullable()->default(0);
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('subcategory_id')->references('id')->on('subcategories')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
