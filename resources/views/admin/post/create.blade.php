@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container mt-5 ">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row">
+        <div class="col-md-9">
             <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Quick Example</h3>
+                  <h3 class="card-title">Add New Post</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
