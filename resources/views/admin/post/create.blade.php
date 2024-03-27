@@ -12,9 +12,9 @@
                          <div class="form-group">
                             <label for="disabledTextInput" class="form-label">Choose Category</label>
                               <select class="form-controll" name="category_id">
-                                 @foreach ($categories as $row )
+                                 {{-- @foreach ($categories as $row )
                                    <option value="{{ $row->id }}"> {{ $row->category_name }}</option>
-                                 @endforeach
+                                 @endforeach --}}
                               </select>
                           </div>
                           <div class="form-group">
