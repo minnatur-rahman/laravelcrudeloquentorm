@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use Illuminate\support\Str;
 use DB;
+use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
