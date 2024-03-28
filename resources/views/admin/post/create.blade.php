@@ -19,16 +19,26 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword3">Category</label>
-                       <select class="form-control" name="category_id" id="exampleInputPassword3">
-                        <option value="">Example One</option>
+                       <select class="form-control" name="subcategory_id" id="exampleInputPassword3">
+                        <option value="">Choose Category</option>
+                        @foreach ($category as $cat )
+                        @php
+                            $subcategories=DB::table('subcategories')->where('category_id',$cat->id)->get();
+                        @endphp
+                            <option value="{{ $cat->id }}" class="text-danger">{{$cat->category_name}}</option>
+                            @foreach ($subcategories as $sub )
+                               <option value="{{ $sub->id }}" class="text-success">----{{$sub->subcategory_name}}</option>
+                            @endforeach
+                        @endforeach
+
                        </select>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="exampleInputPassword1"> Sub Category</label>
                          <select class="form-control" name="subcategory_id" id="exampleInputPassword1">
                           <option>Example One</option>
                          </select>
-                      </div>
+                      </div> --}}
                       <div class="form-group">
                         <label for="exampleInpu1tPassword1">Post Date</label>
                         <input type="date" name="post_date" id="exampleInpu1tPassword1" required class="form-control">
