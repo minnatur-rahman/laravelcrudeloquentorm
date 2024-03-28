@@ -30,15 +30,23 @@
                          </select>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Post Date</label>
-                        <input type="date" name="post_date" required class="form-control">
+                        <label for="exampleInpu1tPassword1">Post Date</label>
+                        <input type="date" name="post_date" id="exampleInpu1tPassword1" required class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPa3ssword1">Tages</label>
+                        <input type="text" name="tags" class="form-control" id="exampleInputPa3ssword1">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword6">Description</label>
+                        <textarea class="form-control" name="description" id="exampleInputPassword6" cols="30" rows="10"></textarea>
                       </div>
                     <div class="form-group">
-                      <label for="exampleInputFile">Sub Category</label>
+                      <label for="exampleInputFile">File Input</label>
                       <div class="input-group">
                         <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="exampleInputFile">
-                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                          <input type="file" name="image" class="custom-file-input" id="exampleInputFil4e">
+                          <label class="custom-file-label" for="exampleInputFil4e">Choose file</label>
                         </div>
                         <div class="input-group-append">
                           <span class="input-group-text">Upload</span>
@@ -46,8 +54,8 @@
                       </div>
                     </div>
                     <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                      <input type="checkbox" name="status" value="1" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Publish Now </label>
                     </div>
                   </div>
                   <!-- /.card-body -->
