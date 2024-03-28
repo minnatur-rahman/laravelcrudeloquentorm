@@ -13,15 +13,28 @@
                 <form>
                   <div class="card-body">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Post Title</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                      <label for="exampleInputEmail4">Post Title</label>
+                      <input type="text" class="form-control" id="exampleInputEmail4" name="title"
+                      placeholder="Post Title" required>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      <label for="exampleInputPassword3">Category</label>
+                       <select class="form-control" name="category_id" id="exampleInputPassword3">
+                        <option value="">Example One</option>
+                       </select>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputFile">File input</label>
+                        <label for="exampleInputPassword1"> Sub Category</label>
+                         <select class="form-control" name="subcategory_id" id="exampleInputPassword1">
+                          <option>Example One</option>
+                         </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Post Date</label>
+                        <input type="date" name="post_date" required class="form-control">
+                      </div>
+                    <div class="form-group">
+                      <label for="exampleInputFile">Sub Category</label>
                       <div class="input-group">
                         <div class="custom-file">
                           <input type="file" class="custom-file-input" id="exampleInputFile">
