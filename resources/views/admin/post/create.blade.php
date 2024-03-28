@@ -26,7 +26,7 @@
                         @php
                             $subcategories=DB::table('subcategories')->where('category_id',$cat->id)->get();
                         @endphp
-                            <option value="" class="text-danger">{{$cat->category_name}}</option>
+                            <option disabled class="text-danger">{{$cat->category_name}}</option>
                             @foreach ($subcategories as $sub )
                                <option value="{{ $sub->id }}" class="text-success">----{{$sub->subcategory_name}}</option>
                             @endforeach

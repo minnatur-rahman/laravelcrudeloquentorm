@@ -29,6 +29,14 @@ class PostController extends Controller
     //___store method___//
     public function store(Request $request)
     {
+        $request->validate([
+            'subcategory_id' => 'required',
+            'title' => 'required',
+            'tags' => 'required',
+            'description' => 'required',
+        ]);
+
+        dd($request->all());
 
     }
 
