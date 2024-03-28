@@ -10,7 +10,8 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form>
+                <form method="POST" action="{{route('post.store')}}" enctype="multipart/form-data">
+                  @csrf
                   <div class="card-body">
                     <div class="form-group">
                       <label for="exampleInputEmail4">Post Title</label>
@@ -25,7 +26,7 @@
                         @php
                             $subcategories=DB::table('subcategories')->where('category_id',$cat->id)->get();
                         @endphp
-                            <option value="{{ $cat->id }}" class="text-danger">{{$cat->category_name}}</option>
+                            <option value="" class="text-danger">{{$cat->category_name}}</option>
                             @foreach ($subcategories as $sub )
                                <option value="{{ $sub->id }}" class="text-success">----{{$sub->subcategory_name}}</option>
                             @endforeach
@@ -45,7 +46,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPa3ssword1">Tages</label>
-                        <input type="text" name="tags" class="form-control" id="exampleInputPa3ssword1">
+                        <input type="text" name="tags" class="form-control" id="exampleInputPa3ssword1" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword6">Description</label>
@@ -55,7 +56,7 @@
                       <label for="exampleInputFile">File Input</label>
                       <div class="input-group">
                         <div class="custom-file">
-                          <input type="file" name="image" class="custom-file-input" id="exampleInputFil4e">
+                          <input type="file" name="image" class="custom-file-input" id="exampleInputFil4e" required>
                           <label class="custom-file-label" for="exampleInputFil4e">Choose file</label>
                         </div>
                         <div class="input-group-append">

@@ -26,9 +26,11 @@ class PostController extends Controller
         return view('admin/post/create', compact('category'));
     }
 
+    //___store method___//
+    public function store(Request $request)
+    {
 
-
-
+    }
 
 
 }
