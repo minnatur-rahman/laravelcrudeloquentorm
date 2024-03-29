@@ -50,13 +50,19 @@ class PostController extends Controller
         $data['description']=$request->description;
         $data['user_id']=Auth::id();
         $data['status']=$request->status;
-        if ($request->image) {
-            return 'done';
-        } else {
-            return 'not done';
+        $photo=$request->image;
+        if ($photo) {
+            $photoName=$slug.'.'.$photo->getClientOriginalExtension(); //   slug.png
+            Image::make($photo)->resize(600,400)->save('public/media'.$photoName);
+            $data['image']='public/media'.$photoName;
+            DB::table('posts')->insert($data);
+          toastr()->success('Post has been saved successfully!', 'Congrats', ['timeOut' => 4000]);
+          return redirect()->back();
         }
-
-
+        //___with out any photo___//
+          DB::table('posts')->insert($data);
+          toastr()->success('Post has been saved successfully!', 'Congrats', ['timeOut' => 4000]);
+          return redirect()->back();
 
     }
 
