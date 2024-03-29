@@ -52,7 +52,7 @@
                             <td>{{ $row->subcategory->subcategory_name }}</td>
                             <td>{{ $row->user->name }}</td>
                             <td>{{ $row->title }}</td>
-                            <td>{{ $row->post_date }}</td>
+                            <td>{{ date('d F y',strtotime($row->post_date)) }}</td>
                             <td>
                                 @if($row->status==1)
                                 <span class="badge badge-success"> Active</span>
