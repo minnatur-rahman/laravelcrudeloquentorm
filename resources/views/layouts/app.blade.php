@@ -34,6 +34,9 @@
   integrity="sha512-hwwdtOTYkQwW2sedIsbuP1h0mWeJe/hFOfsvNKpRB3CkRxq8EW7QMheec1Sgd8prYxGm1OM9OZcGW7/GUud5Fw==" crossorigin="anonymous"
   referrerpolicy="no-referrer" />
 
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{ asset('backend') }}/plugins/summernote/summernote-bs4.min.css">
+
   @stack('css')
 
 </head>
@@ -119,6 +122,8 @@ integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="ano
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"
 integrity="sha512-MqEDqB7me8klOYxXXQlB4LaNf9V9S0+sG1i8LtPOYmHqICuEZ9ZLbyV3qIfADg2UJcLyCm4fawNiFvnYbcBJ1w==" crossorigin="anonymous"
 referrerpolicy="no-referrer"></script>
+<!-- Summernote -->
+<script src="{{ asset('backend') }}/plugins/summernote/summernote-bs4.min.js"></script>
 
 @stack('script')
 
@@ -150,6 +155,19 @@ referrerpolicy="no-referrer"></script>
         })
   </script>
 @endif
+
+<script>
+    $(function () {
+      // Summernote
+      $('#summernote').summernote()
+
+      // CodeMirror
+      CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+        mode: "htmlmixed",
+        theme: "monokai"
+      });
+    })
+  </script>
 
 </body>
 </html>
