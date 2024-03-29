@@ -53,8 +53,8 @@ class PostController extends Controller
         $photo=$request->image;
         if ($photo) {
             $photoName=$slug.'.'.$photo->getClientOriginalExtension(); //   slug.png
-            Image::make($photo)->resize(600,400)->save('public/media'.$photoName);
-            $data['image']='public/media'.$photoName;
+            Image::make($photo)->resize(600,400)->save('media/'.$photoName);
+            $data['image']='media/'.$photoName;
             DB::table('posts')->insert($data);
           toastr()->success('Post has been saved successfully!', 'Congrats', ['timeOut' => 4000]);
           return redirect()->back();
