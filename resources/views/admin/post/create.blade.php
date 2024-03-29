@@ -50,13 +50,13 @@
                       </div>
                       <div class="form-group">
                         <label for="summernote">Description</label>
-                        <textarea class="form-control" name="description" id="summernote" cols="30" rows="10"></textarea>
+                        <textarea class="form-control summernote" name="description"  cols="30" rows="10"></textarea>
                       </div>
                     <div class="form-group">
                       <label for="exampleInputFile">File Input</label>
                       <div class="input-group">
                         <div class="custom-file">
-                          <input type="file" name="image" class="custom-file-input" id="exampleInputFil4e" required>
+                          <input type="file" name="image" class="custom-file-input" id="exampleInputFil4e">
                           <label class="custom-file-label" for="exampleInputFil4e">Choose file</label>
                         </div>
                         <div class="input-group-append">

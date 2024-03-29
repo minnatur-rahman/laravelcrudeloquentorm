@@ -49,9 +49,14 @@ class PostController extends Controller
         $data['description']=$request->description;
         $data['user_id']=Auth::id();
         $data['status']=$request->status;
-        $data['image']=$request->image;
+        if ($request->image) {
+            return 'done';
+        } else {
+            return 'not done';
+        }
 
-        return response()->json($data);
+
+
     }
 
 
