@@ -53,7 +53,7 @@ class PostController extends Controller
         $photo=$request->image;
         if ($photo) {
             $photoName=$slug.'.'.$photo->getClientOriginalExtension(); //   slug.png
-            Image::make($photo)->resize(600,400)->save('media/'.$photoName);
+            Image::make($photo)->resize(600,360)->save('media/'.$photoName);
             $data['image']='media/'.$photoName;
             DB::table('posts')->insert($data);
           toastr()->success('Post has been saved successfully!', 'Congrats', ['timeOut' => 4000]);
@@ -61,7 +61,7 @@ class PostController extends Controller
         }
         //___with out any photo___//
           DB::table('posts')->insert($data);
-          toastr()->success('Post has been saved successfully!', 'Congrats', ['timeOut' => 4000]);
+          toastr()->success('Post has been saved successfully!', 'Congrats', ['timeOut' => 4000]) ;
           return redirect()->back();
 
     }
