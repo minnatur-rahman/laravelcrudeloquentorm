@@ -49,8 +49,8 @@
                         <input type="text" name="tags" class="form-control" id="exampleInputPa3ssword1" required>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword6">Description</label>
-                        <textarea class="form-control" name="description" id="exampleInputPassword6" cols="30" rows="10"></textarea>
+                        <label for="summernote">Description</label>
+                        <textarea class="form-control" name="description" id="summernote" cols="30" rows="10"></textarea>
                       </div>
                     <div class="form-group">
                       <label for="exampleInputFile">File Input</label>
