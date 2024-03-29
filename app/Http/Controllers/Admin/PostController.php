@@ -38,12 +38,13 @@ class PostController extends Controller
         ]);
 
         $category=DB::table('subcategories')->where('id',$request->subcategory_id)->first()->category_id;
+        $slug=str::of($request->title)->slug('-');
 
         $data=array();
         $data['category_id']=$category;
         $data['subcategory_id']=$request->subcategory_id;
         $data['title']=$request->title;
-        $data['slug']=str::of($request->title)->slug('-');
+        $data['slug']= $slug;
         $data['post_date']=$request->post_date;
         $data['tags']=$request->tags;
         $data['description']=$request->description;
