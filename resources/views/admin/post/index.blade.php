@@ -62,7 +62,7 @@
                             </td>
                             <td>
                                 <a href="{{ route('subcategory.edit',$row->id) }}" class="btn btn-sm btn-info">Edit</a>
-                                <a href="{{ route('subcategory.delete',$row->id) }}" class="btn btn-sm btn-danger delete" id="delete">Delete</a>
+                                <a href="{{ route('post.delete',$row->id) }}" class="btn btn-sm btn-danger delete" id="delete">Delete</a>
                             </td>
                         </tr>
                         @endforeach

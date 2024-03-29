@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Subcategory;
+use Faker\Core\File as CoreFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\support\Str;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
+use File;
 
 class PostController extends Controller
 {
@@ -73,5 +75,17 @@ class PostController extends Controller
 
     }
 
+    //___delete_method___//
+    public function destroy($id)
+    {
+         $post=Post::find($id);
+         if(File::exists($post->image)){
+         File::delete($post->image);
+        }
+         $post->delete();
+         toastr()->success('Post has been delete successfully!', 'Congrats', ['timeOut' => 4000]) ;
+         return redirect()->back()->with('message', 'Post Delete Successfully !');
+
+    }
 
 }
