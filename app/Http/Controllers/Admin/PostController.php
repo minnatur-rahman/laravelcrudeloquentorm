@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Subcategory;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\support\Str;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
@@ -36,8 +37,21 @@ class PostController extends Controller
             'description' => 'required',
         ]);
 
-        dd($request->all());
+        $category=DB::table('subcategories')->where('id',$request->subcategory_id)->first()->category_id;
 
+        $data=array();
+        $data['category_id']=$category;
+        $data['subcategory_id']=$request->subcategory_id;
+        $data['title']=$request->title;
+        $data['slug']=str::of($request->title)->slug('-');
+        $data['post_date']=$request->post_date;
+        $data['tags']=$request->tags;
+        $data['description']=$request->description;
+        $data['user_id']=Auth::id();
+        $data['status']=$request->status;
+        $data['image']=$request->image;
+
+        return response()->json($data);
     }
 
 
