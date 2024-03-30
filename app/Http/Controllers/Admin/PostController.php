@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\PostProcessed;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -62,8 +63,8 @@ class PostController extends Controller
         $photo=$request->image;
 
         //___event calling post processed___//
-        $edata['title'=>$request->title]
-        event(New PostProcessed());
+        $edata=['title' => $request->title, 'date' => date('d,F,Y', strtotime($request->post_date))];
+        event(New PostProcessed($edata));
 
         if ($photo) {
             $photoName=$slug.'.'.$photo->getClientOriginalExtension(); //   slug.png
