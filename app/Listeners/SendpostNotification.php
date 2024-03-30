@@ -6,7 +6,7 @@ use App\Events\PostProcessed;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendpostNotification
+class SendPostNotification
 {
     /**
      * Create the event listener.
