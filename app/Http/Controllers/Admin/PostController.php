@@ -60,6 +60,11 @@ class PostController extends Controller
         $data['user_id']=Auth::id();
         $data['status']=$request->status;
         $photo=$request->image;
+
+        //___event calling post processed___//
+        $edata['title'=>$request->title]
+        event(New PostProcessed());
+
         if ($photo) {
             $photoName=$slug.'.'.$photo->getClientOriginalExtension(); //   slug.png
             Image::make($photo)->resize(600,360)->save('media/'.$photoName);
