@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\support\Str;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
-use Illuminate\Support\Facades\File;
+use File;
 
 class PostController extends Controller
 {
@@ -124,17 +124,20 @@ class PostController extends Controller
 
         $photo=$request->image;
         if ($photo) {
+
+            //__delete old image___//
+            if(File::exists($request->old_image)){
+               File::delete($request->old_image);
+             }
+
             $photoName=$slug.'.'.$photo->getClientOriginalExtension(); //   slug.png
             Image::make($photo)->resize(600,360)->save('media/'.$photoName);
             $data['image']='media/'.$photoName;
             DB::table('posts')->where('id',$id)->update($data);
-            //__delete old image___//
-            if(File::exists($request->old_image)){
-               File ::delete($request->old_image);
-            }
+
 
           toastr()->success('Post has been saved successfully!', 'Congrats', ['timeOut' => 4000]);
-          return redirect()->route('post.index');
+         return redirect()->route('post.index');
         }else{
            $data['image']=$request->old_image;
             //___with out any photo___//
