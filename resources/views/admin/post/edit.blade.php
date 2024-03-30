@@ -10,7 +10,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="POST" action="{{route('post.store', $post->id)}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('post.update', $post->id)}}" enctype="multipart/form-data">
                   @csrf
                   {{-- <input type="hidden" name="id" value="{{ $post->id }}"> --}}
                   <div class="card-body">
