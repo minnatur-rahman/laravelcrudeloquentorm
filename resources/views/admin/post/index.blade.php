@@ -61,7 +61,7 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{ route('subcategory.edit',$row->id) }}" class="btn btn-sm btn-info">Edit</a>
+                                <a href="{{ route('post.edit',$row->id) }}" class="btn btn-sm btn-info">Edit</a>
                                 <a href="{{ route('post.delete',$row->id) }}" class="btn btn-sm btn-danger delete" id="delete">Delete</a>
                             </td>
                         </tr>
