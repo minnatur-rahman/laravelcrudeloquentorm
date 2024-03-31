@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Events\PostProcessed;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Category;
-use App\Models\Post;
-use App\Models\Subcategory;
+use App\Models\{Category,Post,Subcategory};
 use Faker\Core\File as CoreFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\support\Str;
@@ -63,8 +61,8 @@ class PostController extends Controller
         $photo=$request->image;
 
         //___event calling post processed___//
-        $edata=['title' => $request->title, 'date' => date('d,F,Y', strtotime($request->post_date))];
-        event(New PostProcessed($edata));
+        // $edata=['title' => $request->title, 'date' => date('d,F,Y', strtotime($request->post_date))];
+        // event(New PostProcessed($edata));
 
         if ($photo) {
             $photoName=$slug.'.'.$photo->getClientOriginalExtension(); //   slug.png
