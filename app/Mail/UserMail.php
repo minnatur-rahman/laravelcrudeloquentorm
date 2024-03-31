@@ -25,7 +25,7 @@ class UserMail extends Mailable
 
     public function build()
     {
-        return $this->view('mail',[$this->post=$post]);
+        return $this->view('mail',['post'=>$this=post]);
     }
 
     /**
