@@ -15,9 +15,6 @@ class UserMail extends Mailable
 
     public $post;
 
-    /**
-     * Create a new message instance.
-     */
     public function __construct($post)
     {
         $this->post=$post;
@@ -25,7 +22,7 @@ class UserMail extends Mailable
 
     public function build()
     {
-        return $this->view('mail',['post'=>$this=post]);
+        return $this->view('mail',['post'=>$this->post]);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Listeners;
 
 use App\Events\PostProcessed;
 use App\Mail\UserMail;
+use App\Models\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Auth;
